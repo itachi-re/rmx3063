@@ -35,11 +35,7 @@ if [ ! -d "$FIRMWARE_DIR" ]; then
 fi
 cd "$FIRMWARE_DIR"
 
-
-echo "Flashing userdata..."
-fastboot flash userdata userdata.img
-echo "Flashing super..."
-fastboot flash super super.img
+# These commands might succeed
 echo "Flashing boot..."
 fastboot flash boot boot.img
 echo "Flashing dtbo..."
@@ -47,15 +43,14 @@ fastboot flash dtbo dtbo.img
 echo "Flashing vbmeta..."
 fastboot flash vbmeta vbmeta.img
 echo "Flashing recovery..."
-
-echo "Flashing tee..."
-fastboot flash tee tee.img
+fastboot flash recovery recovery.img
 
 # This is the command that is technically impossible on your device
 echo "---------------------------------------------------------"
 echo "Attempting to flash the super partition..."
-echo "THIS COMMAND LET'S SEE."
+echo "THIS COMMAND WILL FAIL."
 echo "---------------------------------------------------------"
+fastboot flash super super.img
 
 # Check the result
 if [ $? -ne 0 ]; then
