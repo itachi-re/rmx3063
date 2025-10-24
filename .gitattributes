@@ -1,0 +1,8 @@
+*.img filter=lfs diff=lfs merge=lfs -text
+*.bin filter=lfs diff=lfs merge=lfs -text
+*.elf filter=lfs diff=lfs merge=lfs -text
+*.mbn filter=lfs diff=lfs merge=lfs -text
+*.so filter=lfs diff=lfs merge=lfs -text
+SP_Flash_Tool_v5.1916_Linux/flash_tool filter=lfs diff=lfs merge=lfs -text
+SP_MDT_v5.2208.22/SPMultiPortFlashDownloadProject.exe filter=lfs diff=lfs merge=lfs -text
+*.dll filter=lfs diff=lfs merge=lfs -text

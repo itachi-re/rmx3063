@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<flashtool-config version="2.0">
+  <general>
+    <chip-name>MT6755</chip-name>
+    <storage-type>EMMC</storage-type>
+    <download-agent>
+      MTK_AllInOne_DA.bin
+    </download-agent>
+    <scatter>
+      MT6755_Android_scatter_emmc.txt
+    </scatter>
+    <rom-list>
+      <rom index="0" enable="true">
+        preloader.bin
+      </rom>
+    </rom-list>
+    <connection
+      type="BromUSB"
+      high-speed="false"
+      without-battery="false" />
+  </general>
+  <commands>
+    <efuse>
+      <common-ctrl
+        Disable_EMMC_boot="false"
+        Disable_NAND_boot="false"
+        Disable_NAND_boot_speedup="false"
+        USB_download_type="0"/>
+      <secure-ctrl
+        Enable_ACC="false"
+        Enable_ACK="false"
+        Enable_SBC="true"
+        Enable_SLA="false"
+        Enable_DAA="false"
+        Disable_JTAG="false"
+        Enable_Root_Cert="false"
+        Enable_SW_JTAG_CON="false"
+        Disable_Rom_Cmd="false"/>
+      
+      <sbc-pub-key>
+        <pub-key-e>00010001</pub-key-e>
+        <pub-key-n>
+          01C6B6A1DDF05E818E3DFE16101C5DF65939F352EAB8AACA91CB5BFEC15A1989DD7553343683BC30BB38E45F15BF17BCCAB16A41D695A4318F26504675FE83E92EE21C991C0FBA705395B4A34C331842D8A6F69846B58CC67306E3DE27B05666A6C4372E3FC0D92F314805EDD5B1CB7D25BF3CF9CA9C33C36D97B0B37DA8A44A7A1CA651679D8D680557740C7C1CA25D84BDD12136C2930432808F28265D1E33E667389E4806D865F3CC06329534F7A11861EB688545DCCCEF0B04E96735A08368FA31A1F3260073B31299B216192E620B8D1EA468925ADBD627C49EFC3623658F3CF8AD6D8556272E48FA7711E650287DA19196610F036B6C0D394E42C121D1
+        </pub-key-n>
+      </sbc-pub-key>
+      
+      <common-lock
+        com_ctrl_lock="false"
+        usb_id_lock="false"
+        spare_lock="false"/>
+      <secure-lock
+        sec_attr_lock="false"
+        ackey_lock="false"
+        sbc_pubk_hash_lock="true"/>
+      <usb-id vid="0000" pid="0000"/>
+      
+      <c-lock
+         c_ctrl1_lock="false"
+         c_ctrl0_lock="false"
+         c_data1_lock="false"
+         c_data0_lock="false"/> 
+          
+         
+      <c_ctrl_0
+  	 	  c2k_sbc_en="true"
+  	 	  md1_sbc_en="true" />
+               <!--
+      <c_ctrl0>112</c_ctrl0>
+      <c_ctrl1>1122</c_ctrl1>    
+      
+     <c_data_0>1234567890abcdef</c_data_0>
+     <c_data_1>bbbbbbbbbbbbbbbb</c_data_1>                
+      
+       <ac-key>112233445566778899AABBCCDDEEFFFF</ac-key>
+            -->
+	
+      <read-back
+        dir="."
+        name="efuse_dump.txt"
+        time-prefix="false"/>
+    </efuse>
+  </commands>
+</flashtool-config>
